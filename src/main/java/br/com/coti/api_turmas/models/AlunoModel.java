@@ -7,17 +7,23 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
+@Data
 @Entity
 @Table(name = "TB_ALUNOS")
-@Data
 public class AlunoModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
+    @Column(length = 100, nullable = false)
     private String nome;
+
+    @Column(length = 100, nullable = false, unique = true)
     private Integer matricula;
+
+    @Column(length = 11, nullable = false, unique = true)
     private String cpf;
 
 }
